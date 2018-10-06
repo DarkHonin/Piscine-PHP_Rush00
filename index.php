@@ -1,14 +1,13 @@
 <?php
 
-$t_parts = [
-    "nav"=>"templates/navbar.php",
-    "content"=>"templates/content.php",
-    "infobar"=>"templat/infobar.php"
-];
 
-
+include "html/main.php";
 include "core/database_utils.php";
 
-$connection = new r00\DB("localhost", "root", "password", "R00");
-
+$con = new r00\DB('loalhost', "root", "password", "r00");
+/*
+$users = $con->send_query_arr(["select"=>"*", "from"=> "users"]);
+var_dump($users);
+*/
 ?>
+
