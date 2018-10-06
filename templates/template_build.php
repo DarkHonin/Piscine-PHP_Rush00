@@ -1,7 +1,5 @@
 <?php
 
-namespace Template;
-
 $templates = [
 	"main" => "html/main.php",
 	"navbar" => "html/navbar.php"

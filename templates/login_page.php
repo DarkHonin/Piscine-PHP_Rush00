@@ -20,13 +20,8 @@ require_once("init.php");
 	<header>
 		<?php		
 		
-			echo \Template\render_part("navbar", [
-			"Home" 			=> "/",
-			"Catagories"	=> "/catagories",
-			"Dropdown"		=>	[
-				"Opt 1"	=> "Some url"
-			],
-			"login" => true
+			echo render_part("navbar", [
+			"Register" => "/register.php"
 		]);
 		
 		?>
@@ -39,18 +34,11 @@ require_once("init.php");
 				class="g-recaptcha"
 				data-sitekey="6LcYd3MUAAAAAEXNkgBpwbjKHDf33VE9eS2NICbn"
 				data-callback="on_submit">
-				login
+				Login
 			</button>
-			<p style="color: white">Register: <a href="register.php" style="color: white"> Click here</a></p>
 			<p style="color: white">Forgot your password?<a href="#" style="color: white"> Click here</a></p>
 		</form>
 		<hr style="color:aliceblue">
-	<footer>
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About us</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</footer>
+
 </body>
 </html>

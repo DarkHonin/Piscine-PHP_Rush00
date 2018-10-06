@@ -20,13 +20,8 @@ require_once("init.php");
 	<header>
 		<?php		
 		
-			echo \Template\render_part("navbar", [
-			"Home" 			=> "/",
-			"Catagories"	=> "/catagories",
-			"Dropdown"		=>	[
-				"Opt 1"	=> "Some url"
-			],
-			"login" => true
+			echo render_part("navbar", [
+			"Login" => "/login.php"
 		]);
 		
 		?>
@@ -46,12 +41,5 @@ require_once("init.php");
 			</button>
 		</form>
 		<hr style="color:aliceblue">
-	<footer>
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About us</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</footer>
 </body>
 </html>

@@ -18,10 +18,8 @@ require( "../init.php");
 		);
 		$context  = stream_context_create($options);
 		$result = file_get_contents("https://www.google.com/recaptcha/api/siteverify", false, $context);
-		if ($result === FALSE){
+		if ($result === FALSE)
 			echo("failed to comunicate to reCaptcha server server");
-			header("Location: ".$_POST["REDIRECT"]);
-		}
 	}
 
 	function check_args($for){
@@ -60,15 +58,18 @@ function login(){
 		if(empty($unames))
 			die("Login invalid");
 		$pss = md5($_POST["PASS"]);
-		print_r([$pss, $unames[0]["md5"]]);
 		if ($pss == $unames[0]["md5"])
 		{
-			$_SESSION["UNAME"] = $_POST["UNAME"];
+			$_SESSION["UNAME"] = $_POST["UID"];
 			$_SESSION["TOKEN"] = md5(time());
 			header("Location: /");
 		}else
 			die("Login invalid");
 	}
+
+function delete(){
+	
+}
 
 
 header("Content-type: text/plain");

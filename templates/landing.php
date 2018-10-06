@@ -19,25 +19,34 @@ require_once("init.php");
 <body>
 	<header>
 		<?php		
-		
-			echo \Template\render_part("navbar", [
-			"Home" 			=> "/",
-			"Catagories"	=> "/catagories",
-			"Dropdown"		=>	[
-				"Opt 1"	=> "Some url"
-			],
-			"login" => true
-		]);
-		
+			$arr = [];
+			if (isset($_SESSION['UNAME']))
+			{
+				$arr["Welcome ".$_SESSION['UNAME']] = "/user.php";
+				$arr["Logout"] = "/logout.php";
+			}else
+			{
+				$arr["Login"] = "/login.php";
+				$arr["Register"] = "/register.php";
+			}
+			echo render_part("navbar", $arr);
 		?>
 	</header>
-		
-	<footer>
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About us</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</footer>
+	<?php
+	
+	$products = send_query_arr(["select"=>"*", "from"=>"products"]);
+	foreach($products as $p){
+		?>
+		<div class="product" id="p<?php echo $p["id"] ?>">
+			<h2><?php echo $p["Name"] ?></h2>
+			<img src="<?php echo $p["image"] ?>">
+			<div><?php echo $p["Description"] ?></div>
+			<p><span class="price">R<?php echo $p["Price"] ?></span>
+				<a href="/cart.php?action=add&item=<?php echo $p["id"] ?>">Add to cart</a>
+			</p>
+		</div>
+		<?php
+	}
+	?>
 </body>
 </html>
