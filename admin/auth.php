@@ -1,7 +1,5 @@
 <?php
 
-namespace r00;
-
 require( "../init.php");
 
 	function is_human(){
@@ -29,9 +27,10 @@ require( "../init.php");
 	function check_args($for){
 		$expected = [
 			"captcha" =>	[	"g-recaptcha-response",
-								"REDIRECT",
 								"QUERY"],
 			"register" =>	[	"UID",
+								"EMAIL",
+								"PASS2",
 								"PASS"]
 		];
 		foreach($expected[$for] as $e)
@@ -43,25 +42,30 @@ require( "../init.php");
 
 	function register(){
 		check_args('register');
-		$unames = r00\send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
+		$unames = send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
+		if ($_POST["PASS"] != $_POST["PASS2"])
+			die("Passwords do not match");
 		if(!empty($unames))
 			die("Username already in use");
-		r00\send_query_arr(["insert"=>[
+		send_query_arr(["insert"=>[
 											"into"=>"users", 
-											"cols"=>["Username", "SessionToken", "md5"], 
-											"vals"=>[$_POST["UID"], md5("password"), md5($_POST["PASS"])]
+											"cols"=>["Username", "SessionToken", "md5", "email"], 
+											"vals"=>[$_POST["UID"], md5("password"), md5($_POST["PASS"]), $_POST["EMAIL"]]
 											]]);
+		header("Location: /");
 	}
 
-	function login(){
-		$unames = r00\send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
+function login(){
+		$unames = send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
 		if(empty($unames))
 			die("Login invalid");
 		$pss = md5($_POST["PASS"]);
-		if (pss == $unames[0][md5])
+		print_r([$pss, $unames[0]["md5"]]);
+		if ($pss == $unames[0]["md5"])
 		{
 			$_SESSION["UNAME"] = $_POST["UNAME"];
 			$_SESSION["TOKEN"] = md5(time());
+			header("Location: /");
 		}else
 			die("Login invalid");
 	}

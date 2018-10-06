@@ -1,4 +1,7 @@
 <nav class='nav-horisontal'>
+	<a href="/">
+		<img id="logo" src="https://pbs.twimg.com/profile_images/1002259962075238400/7hlbCkfp_400x400.jpg" width="150px" height="150px"/>
+	</a>
 <?php
 function ren($ENV){
 	foreach($ENV as $k=>$e){
@@ -14,19 +17,5 @@ function ren($ENV){
 	}
 }
 ren($ENV);
-if ($ENV['login']){ 
 ?>
-<h1>LOGIN</h1>
-<form class="nav-item" method="post" action="admin/auth.php" id="auth">
-    <input type='hidden' name="QUERY" value="login">
-	<input type='hidden' name="REDIRECT" value="http://<?php echo $_SERVER["REQUEST_URI"] ?>">
-    <input type="text" name="UID" required="true">
-    <input type="password" name="PASS" required="true">
-    <button
-    	class="g-recaptcha"
-    	data-sitekey="6LcYd3MUAAAAAEXNkgBpwbjKHDf33VE9eS2NICbn"
-    	data-callback="on_submit">
-    	login
-	</button>
 </nav>
-<?php } ?>

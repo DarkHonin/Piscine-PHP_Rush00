@@ -1,5 +1,5 @@
 <?php
-require_once("init.php");
-include "html/register_page.php";
+include "init.php";
+include "templates/register_page.php";
 
 ?>

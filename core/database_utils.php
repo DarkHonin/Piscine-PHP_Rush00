@@ -1,7 +1,5 @@
 <?php
 
-namespace r00;
-
 function select(&$str, $args){
 	if (!array_key_exists("select", $args))
 		error_log("Query expected key `select`");
@@ -29,24 +27,23 @@ function insert(&$str, $args){
 	$str .=("('".implode("', '", $args['insert']['vals'])."')");
 }
 
-$CON = mysqli_connect($host, $uname, $pass, $db);
+$CON = mysqli_connect("localhost", "root", "password", "r00");
 if (mysqli_connect_errno())
 	die("Failed to connect to the database: ".mysqli_connect_error());
-
 
 function build_query($query_array){
 	$str = "";
 	foreach($query_array as $k=>$v)
 	{
-		$q = "r00\\$k";
-		$q($str, $query_array);
+
+		$k($str, $query_array);
 	}
 	return $str;
 }
 
 function send_query_arr($q_arr){
-	$qs = $this->build_query($q_arr);
-	return $this->send_query($qs);
+	$qs = build_query($q_arr);
+	return send_query($qs);
 }
 
 function send_query($str){
