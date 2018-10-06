@@ -1,81 +1,174 @@
-		body{
-			background-color:  #161c22;
-		}
-		.auth_form, .product{
-			background-color: #27323da8;
-			box-shadow: inset 0px 0px 20px 0px black;
-			padding: 20px;
-		}
+body{
+	background-color:  #161c22;
+}
+.auth_form, .product{
+	z-index: 1;
+	background-color: #27323da8;
+	box-shadow: inset 0px 0px 10px 0px black;
+	padding: 20px;
+	text-align: center;
+}
 
-		.auth_form>p{
-			color: white;
-			font-size: 2em;
-			font-style: none;
-		}
+.auth_form>p{
+	color: white;
+	font-size: 2em;
+	font-style: none;
+}
 
-		.auth_form>input{
-			width: 260px;
-			height: 30px;
-			margin-top: 10px;
-			text-align: center;
-			font-size: 20px;
-			border-radius: 24px;
-		}
-		.auth_form>button{
-			width: 115px;
-			height: 25px;
-			margin-top: 10px;
-			text-align: center;
-			background-color: #161c22;
-			color: antiquewhite;
-			font-size: 15px;
-			border-radius: 24px;
-			box-shadow: rgb(0, 0, 0) 0px 6px 50px;
-		}
-		#logo{
-			border-radius: 70px;
-			width: 100px;
-			height: auto;
-			margin: 10px;
-			box-shadow: 0px 0px 10px lightblue;
-			border: #373b63 1px solid;
-		}
-		input{
-			box-shadow: rgb(0, 0, 0) 0px 6px 50px;
-		}
+.auth_form>input{
+	width: 260px;
+	height: 30px;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 24px;
+}
+.auth_form>button{
+	width: 115px;
+	height: 25px;
+	margin-top: 10px;
+	text-align: center;
+	background-color: #161c22;
+	color: antiquewhite;
+	font-size: 15px;
+	border-radius: 24px;
+	box-shadow: rgb(0, 0, 0) 0px 6px 50px;
+}
 
-		.nav-horisontal{
-			display: flex;
-			background-color:  #050b11;
-		}
+#logo{
+	border-radius: 70px;
+	width: 100px;
+	height: auto;
+	margin: 10px;
+	box-shadow: 0px 0px 10px lightblue;
+	border: #373b63 1px solid;
+}
 
-		.nav-item{
-			margin: auto;
-			color: white;
-			font-size: 1.5em;
-			padding: 10px;
-			text-shadow: 1px 0 lightblue,
-							0 -1px lightblue;
-		}
+input{
+	box-shadow: rgb(0, 0, 0) 0px 6px 50px;
+}
 
-		.nav-item:hover{
-			text-shadow: 1px 0 darkblue,
-							0 -1px darkblue;
-		}
+.nav-horisontal{
+	background-color:  #050b11;
+	width: 100%;
+	max-height: 50px;
+	overflow: visible;
+}
 
-		.product{
-			color: white;
-			text-align: center;
-		}
+.nav-item{
+	color: white;
+	font-size: 1.5em;
+	padding: 10px;
+	text-shadow: 1px 0 lightblue,
+		0 -1px lightblue;
+	display: inline-block;
+	vertical-align: top;
+}
+.nav-dropdown-title, .nav-item>a{
+	color: white;
+	text-decoration: none;
+}
 
-		.product>img{
-			display: block;
-			height: 250px;
-			width: auto;
-			margin: auto;
-		}
+.nav-item:hover{
+	text-shadow: 1px 0 darkblue,
+		0 -1px darkblue;
+}
 
-		.price{
-			displat: block;
-			color: lime;
-		}
+
+.price{
+	displat: block;
+	color: lime;
+	float: left;
+	text-align: center;
+	padding: 5px;
+}
+
+.nav-dropdown{
+	max-width: 200px;
+	position: relative;
+}
+
+.nav-dropdown>.nav-dropdown-content{
+	opacity: 0;
+	height: 0px;
+	transition: opacity 0.2s;
+	max-height: 750px;
+	overflow-y: auto;
+	
+}
+
+.nav-dropdown:hover>.nav-dropdown-content{
+	opacity: 1;
+	height: initial;
+}
+
+.nav-dropdown-content{
+	
+}
+
+
+.nav-dropdown-content>.cart-empty{
+	text-align: center;
+	display: block;
+	padding: 10px;
+	border-top: grey 1px solid;
+	background-color: #161c22;
+	margin-top: 10px;
+}
+
+.product-description{
+	
+}
+
+.product-list{
+	width: 80%;
+	margin: auto;
+}
+
+.product{
+	color: white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	max-width: 200px;
+	margin: 10px;
+	z-index: 1;
+	float: left;
+}
+
+.product>.product-image{
+	display: block;
+	max-height: 200px;
+	max-width: 200px;
+	width: auto;
+	margin: auto;
+	overflow: hidden;
+}
+
+.product>.product-image>img{
+	max-height: 200px;
+}
+
+.product-controll{
+	text-align: justify;
+}
+
+.product-info{
+	display: block;
+	vertical-align: bottom;
+	flex-direction: column;
+}
+
+.product-info>.product-controll>.cart-add{
+	float: right;
+	color: wheat;
+	background: linear-gradient(to right, grey, transparent, transparent);
+	background-size: 100px 500px;
+	transition: background-size 0.2s;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.product-info>.product-controll>.cart-add:hover{
+	background-size: 500px 500px;
+}
