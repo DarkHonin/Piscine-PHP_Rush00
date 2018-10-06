@@ -1,24 +1,26 @@
 <?php
 
-class	Template{
-	static public $templates = [
-		"main" => "html/main.php",
-		"navbar" => "html/navbar.php"
-	];
+namespace Template;
 
-	static function get_part($alias){
-		return Template::$templates[$alias];
-	}
+$templates = [
+	"main" => "html/main.php",
+	"navbar" => "html/navbar.php"
+];
 
-	static function render_part($part, $data){
-		$path = Template::get_part($part);
-		ob_start();
-		$ENV = $data;
-		include $path;
-		$result = ob_get_contents();
-		ob_end_clean();
-		return $result;
-	}
+function get_part($alias){
+	global $templates;
+	return $templates[$alias];
 }
+
+function render_part($part, $data){
+	$path = get_part($part);
+	ob_start();
+	$ENV = $data;
+	include $path;
+	$result = ob_get_contents();
+	ob_end_clean();
+	return $result;
+}
+
 
 ?>
