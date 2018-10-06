@@ -42,17 +42,17 @@ require( "../init.php");
 
 	function register(){
 		check_args('register');
-		$unames = send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
+		$unames = send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."' OR Email='".$_POST["UID"]."'"]);
+		if(!empty($unames))
+			die("Username/Email already in use");
 		if ($_POST["PASS"] != $_POST["PASS2"])
 			die("Passwords do not match");
-		if(!empty($unames))
-			die("Username already in use");
 		send_query_arr(["insert"=>[
 											"into"=>"users", 
 											"cols"=>["Username", "SessionToken", "md5", "email"], 
 											"vals"=>[$_POST["UID"], md5("password"), md5($_POST["PASS"]), $_POST["EMAIL"]]
 											]]);
-		header("Location: /");
+		echo "Registered sucsessfully";
 	}
 
 function login(){

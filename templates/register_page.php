@@ -31,13 +31,13 @@ require_once("init.php");
 		
 		?>
 	</header>
-	<form align="center" style="background-color: light-blue" method="post" action="admin/auth.php" id="auth">
+	<form align="center" class="auth_form" method="post" action="admin/auth.php" id="auth">
 			<input type='hidden' name="QUERY" value="register">
 			<p style="font-family: Verdana"><u>CREATE AN ACCOUNT</u></p>
-			<input id="user_name" name="EMAIL" type="text" placeholder="Email address" required /><br><br>
-			<input id="user_name" name="UID" type="text" placeholder="User name" required /><br><br>
-			<input id="password" name="PASS" type="password" placeholder="password" required /><br><br>
-			<input id="password" name="PASS2" type="password" placeholder="confirm password" required /><br><br>
+			<input  name="EMAIL" type="text" placeholder="Email address" required /><br><br>
+			<input  name="UID" type="text" placeholder="User name" required /><br><br>
+			<input  name="PASS" type="password" placeholder="password" required /><br><br>
+			<input  name="PASS2" type="password" placeholder="confirm password" required /><br><br>
 			<button
 				class="g-recaptcha"
 				data-sitekey="6LcYd3MUAAAAAEXNkgBpwbjKHDf33VE9eS2NICbn"

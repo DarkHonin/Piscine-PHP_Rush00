@@ -33,8 +33,8 @@ require_once("init.php");
 	</header>
 		<form align="center" method="post" action="admin/auth.php" id="auth">
 			<input type='hidden' name="QUERY" value="login">
-			<input id="user_name" name="UID" type="text" placeholder="Username" required /><br><br>
-			<input id="password" name="PASS" type="password" placeholder="password" required /><br><br>
+			<input name="UID" type="text" placeholder="Username" required /><br><br>
+			<input name="PASS" type="password" placeholder="password" required /><br><br>
 			<button
 				class="g-recaptcha"
 				data-sitekey="6LcYd3MUAAAAAEXNkgBpwbjKHDf33VE9eS2NICbn"
