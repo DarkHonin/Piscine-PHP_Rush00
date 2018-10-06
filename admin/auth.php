@@ -43,10 +43,10 @@ require( "../init.php");
 
 	function register(){
 		check_args('register');
-		$unames = DB::$instance->send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
+		$unames = r00\send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
 		if(!empty($unames))
 			die("Username already in use");
-		DB::$instance->send_query_arr(["insert"=>[
+		r00\send_query_arr(["insert"=>[
 											"into"=>"users", 
 											"cols"=>["Username", "SessionToken", "md5"], 
 											"vals"=>[$_POST["UID"], md5("password"), md5($_POST["PASS"])]
@@ -54,7 +54,7 @@ require( "../init.php");
 	}
 
 	function login(){
-		$unames = DB::$instance->send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
+		$unames = r00\send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_POST["UID"]."'"]);
 		if(empty($unames))
 			die("Login invalid");
 		$pss = md5($_POST["PASS"]);
