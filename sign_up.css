@@ -104,7 +104,7 @@ input{
 
 
 .price{
-	displat: block;
+	display: block;
 	color: lime;
 	float: left;
 	text-align: center;
@@ -130,10 +130,6 @@ input{
 	height: initial;
 }
 
-.nav-dropdown-content{
-	
-}
-
 
 .nav-dropdown-content>.cart-empty{
 	text-align: center;
@@ -142,10 +138,6 @@ input{
 	border-top: grey 1px solid;
 	background-color: #161c22;
 	margin-top: 10px;
-}
-
-.product-description{
-	
 }
 
 .product-list{
@@ -183,7 +175,6 @@ input{
 
 .product-info{
 	display: block;
-	vertical-align: bottom;
 	flex-direction: column;
 }
 
