@@ -1,7 +1,13 @@
 <?php
-session_start();
-include "core/database_utils.php";
+if(isset($_POST))
+	foreach($_POST as $k=>$v)
+		$_POST[$k] = htmlentities(trim($v));
+if(isset($_GET))
+	foreach($_GET as $k=>$v)
+		$_GET[$k] = htmlentities(trim($v));
 
-//new r00\DB('localhost', "root", "password", "r00");
+if(!session_status() == 0)
+	session_start();
+include "core/database_utils.php";
 
 ?>

@@ -3,6 +3,7 @@ include "head.php";
 ?>
 		<form align="center" class="auth_form" method="post" action="admin/auth.php" id="auth">
 			<input type='hidden' name="QUERY" value="login">
+			<input type='hidden' name="redirect" value="<?php echo (isset($_GET['redirect']) ? $_GET['redirect'] : "/"); ?>">
 			<input name="UID" type="text" placeholder="Username" required /><br><br>
 			<input name="PASS" type="password" placeholder="password" required /><br><br>
 			<button

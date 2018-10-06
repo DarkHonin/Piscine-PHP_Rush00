@@ -6,6 +6,10 @@ body{
 	color: white;
 }
 
+.user-info>h2{
+	display: inline;
+}
+
 .user-info>hr{
 	width: 50%;
 	box-shadow: #161c22 0px -2.5px 5px 2px;
@@ -15,6 +19,14 @@ body{
 	text-align: left;
 	width: 50%;
 	margin: auto;
+}
+
+.form.error{
+	width: 25%;
+	padding: 5px;
+	border-radius: 100px;
+	color: red;
+	font-size: 1.2em;
 }
 
 .auth_form, .product, .form{
@@ -31,7 +43,7 @@ body{
 	font-style: none;
 }
 
-.auth_form>input{
+input{
 	width: 260px;
 	height: 30px;
 	margin-top: 10px;
@@ -39,7 +51,7 @@ body{
 	font-size: 20px;
 	border-radius: 24px;
 }
-.auth_form>button{
+button{
 	width: 115px;
 	height: 25px;
 	margin-top: 10px;
@@ -187,4 +199,54 @@ input{
 
 .product-info>.product-controll>.cart-add:hover{
 	background-size: 500px 500px;
+}
+.form>div>*{
+	display: block;
+}
+
+.form{
+	display: block;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	margin: 10px auto;
+}
+
+.userdata>div{
+	display: block;
+	text-align: center;
+	margin: 5px auto;
+	color: white;
+}
+
+.userdata>button{
+	margin: auto;
+}
+
+.catagory{
+	display: block;
+	font-size: 0.5em;
+	padding: 5px;
+	color: white;
+	font-family: sans-serif;
+	border: 1px gold solid;
+	border-radius: 50px;
+	box-shadow: inset 0px 0px 2.5px 0px gold;
+}
+
+.Mundane{
+	background-color: brown;
+}
+
+.Special{
+	background-color: rgb(165, 132, 42);
+}
+
+.Exceptional{
+	background-color: rgb(255, 145, 0);
+}
+
+.Elderich{
+	background-color: gold;
+	color: brown;
 }

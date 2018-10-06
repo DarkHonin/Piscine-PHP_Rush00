@@ -18,6 +18,18 @@ function where(&$str, $args){
 	$str .= " WHERE ".$args['where'];
 }
 
+function update(&$str, $args){
+	if (!array_key_exists("update", $args))
+		error_log("Query expected key `update`");
+	$str .= " UPDATE ".$args['update'];
+}
+
+function set(&$str, $args){
+	if (!array_key_exists("set", $args))
+		error_log("Query expected key `set`");
+	$str .= " SET ".$args['set'];
+}
+
 function insert(&$str, $args){
 	if (!array_key_exists("insert", $args))
 		error_log("Query expected key `insert`");
@@ -25,6 +37,12 @@ function insert(&$str, $args){
 	$str .=('('.implode(", ", $args['insert']['cols']).')');
 	$str .=(" VALUES ");
 	$str .=("('".implode("', '", $args['insert']['vals'])."')");
+}
+
+function delete(&$str, $args){
+	if (!array_key_exists("delete", $args))
+		error_log("Query expected key `delete`");
+	$str .= "DELETE FROM ".($args['delete']['from']);
 }
 
 $CON = mysqli_connect("localhost", "root", "password", "r00");

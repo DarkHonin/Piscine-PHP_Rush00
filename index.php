@@ -4,7 +4,10 @@
 	?>
 	<div class="product-list">
 	<?php
-	$products = send_query_arr(["select"=>"*", "from"=>"products"]);
+	if(isset($_GET['filter']))
+		$products = send_query_arr(["select"=>"*", "from"=>"products", "where"=>"Catagory='".$_GET['filter']."'"]);
+	else
+		$products = send_query_arr(["select"=>"*", "from"=>"products"]);
 	foreach($products as $p){
 		?>
 		<div class="product" id="p<?php echo $p["id"] ?>">
@@ -12,7 +15,9 @@
 				<img src="img/<?php echo $p["image"] ?>">
 			</div>
 			<div class="product-info">
-				<h2><?php echo $p["Name"] ?></h2>
+				<h2><?php echo $p["Name"] ?>
+				<a class="catagory <?php echo $p["Catagory"] ?>" href="/?filter=<?php echo $p["Catagory"] ?>"><?php echo $p["Catagory"] ?></a>
+				</h2>
 				<div class="product-description"><?php echo $p["Description"] ?></div>
 				<p class="product-controll">
 				<span class="price">R<?php echo $p["price"] ?></span>

@@ -1,6 +1,6 @@
 <?php
 
-require( "../init.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/init.php");
 
 	function is_human(){
 		check_args('captcha');
@@ -50,6 +50,7 @@ require( "../init.php");
 											"vals"=>[$_POST["UID"], md5("password"), md5($_POST["PASS"]), $_POST["EMAIL"]]
 											]]);
 		echo "Registered sucsessfully";
+		header("Location: /");
 	}
 
 function login(){
@@ -61,21 +62,16 @@ function login(){
 		{
 			$_SESSION["UNAME"] = $_POST["UID"];
 			$_SESSION["TOKEN"] = md5(time());
-			header("Location: /");
+			if(isset($_POST['redirect']))
+				header("Location: ".$_POST['redirect']);
+			else
+				header("Location: /");
 		}else
 			die("Login invalid");
 	}
 
-function delete(){
-	
-}
-
-
-header("Content-type: text/plain");
-
 is_human();
-if(isset($_POST["QUERY"]))
-	echo "Captcha OK\n";
+if(isset($_POST["QUERY"])){
 	$q = $_POST["QUERY"];
 	$q();
 }

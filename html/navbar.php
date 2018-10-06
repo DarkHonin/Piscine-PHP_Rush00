@@ -46,5 +46,11 @@ if (isset($_SESSION['UNAME'])){
 	<?php
 }
 
+if (isset($_GET['filter'])){
+	echo '<div class="nav-item">
+			<a href="/">Clear filter</a>
+		</div>';
+}
+
 ?>
 </nav>
