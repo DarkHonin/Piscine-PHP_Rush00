@@ -14,11 +14,14 @@ function ren($ENV){
 	}
 }
 ren($ENV);
+if ($ENV['login']){ 
 ?>
-<form class="nav-item" method="post" action="auth.php" id="auth">
+<h1>LOGIN</h1>
+<form class="nav-item" method="post" action="admin/auth.php" id="auth">
     <input type='hidden' name="QUERY" value="login">
+	<input type='hidden' name="REDIRECT" value="http://<?php echo $_SERVER["REQUEST_URI"] ?>">
     <input type="text" name="UID" required="true">
-    <input type="password" name="PWD" required="true">
+    <input type="password" name="PASS" required="true">
     <button
     	class="g-recaptcha"
     	data-sitekey="6LcYd3MUAAAAAEXNkgBpwbjKHDf33VE9eS2NICbn"
@@ -26,3 +29,4 @@ ren($ENV);
     	login
 	</button>
 </nav>
+<?php } ?>

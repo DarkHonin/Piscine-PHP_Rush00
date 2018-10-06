@@ -4,11 +4,13 @@ namespace r00;
 
 class DB{    
 	private $CON;
+	public static $instance;
 
 	function __construct($host, $uname, $pass, $db){
 		$this->CON = mysqli_connect($host, $uname, $pass, $db);
 		if (mysqli_connect_errno())
 			die("Failed to connect to the database: ".mysqli_connect_error());
+		DB::$instance = $this;
 	}
 	
 	function __destruct(){
@@ -59,83 +61,32 @@ function query_provider($str){
 	return $query_objs[$str];
 }
 
-class Query{
-
-	private $QUERY_STRING;
-
-	function __construct($base_str){
-		$this->QUERY_STRING = $base_str;
-	}
-
-	/* 
-		The action returns a new query object configured for possible branches
-	*/
-	function a($args) : Query{
-
-	}
-
-	function push_var($str){
-		$this->QUERY_STRING .= $str;
-	}
-
-	public function get_query_string(){
-		return $this->QUERY_STRING;
-	}
+function select($str, $args){
+	if (!array_key_exists("select", $args))
+		error_log("Query expected key `select`");
+	$str .= "SELECT ".$args['select'];
 }
 
-class Query_Select extends Query{
-	function __construct(){
-		parent::__construct("SELECT ");
-	}
-
-	function a($args) : Query{
-		if (!array_key_exists("select", $args))
-			error_log("Query expected key `select`");
-		$this->push_var($args['select']);
-		return new Query_From($this->get_query_string());
-	}
+function from($str, $args){
+	if (!array_key_exists("from", $args))
+		error_log("Query expected key `from`");
+	$str .= " FROM ".$args['from'];
 }
 
-class Query_From extends Query{
-	function __construct($base_str){
-		parent::__construct($base_str." FROM ");
-	}
-
-	function a($args) : Query{
-		if (!array_key_exists("from", $args))
-			error_log("Query expected key `from`");
-		$this->push_var($args['from']);
-		return $this;
-	}
+function where($str, $args){
+	if (!array_key_exists("where", $args))
+		error_log("Query expected key `where`");
+	$str .= " WHERE ".$args['where'];
 }
 
-class Query_Where extends Query{
-	function __construct($base_str){
-		parent::__construct($base_str." WHERE ");
-	}
-
-	function a($args) : Query{
-		if (!array_key_exists("where", $args))
-			error_log("Query expected key `where`");
-		$this->push_var($args['where']);
-		return $this;
-	}
+function insert($str, $args){
+	if (!array_key_exists("insert", $args))
+		error_log("Query expected key `insert`");
+	$str .= "INSERT ".($args['insert']['into']);
+	$str .=('('.implode(", ", $args['insert']['cols']).')');
+	$str .=(" VALUES ");
+	$str .=("('".implode("', '", $args['insert']['vals'])."')");
 }
 
-class Query_Insert extends Query{
-	function __construct(){
-		parent::__construct("INSERT INTO ");
-	}
-
-	function a($args) : Query{
-		if (!array_key_exists("insert", $args))
-			error_log("Query expected key `insert`");
-		$this->push_var($args['insert']['into']);
-		$this->push_var('('.implode(", ", $args['insert']['cols']).')');
-		$this->push_var(" VALUES ");
-		$this->push_var("('".implode("', '", $args['insert']['vals'])."')");
-		return $this;
-	}
-}
 
 ?>
