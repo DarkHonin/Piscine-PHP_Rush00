@@ -24,8 +24,7 @@ require( "../init.php");
 
 	function check_args($for){
 		$expected = [
-			"captcha" =>	[	"g-recaptcha-response",
-								"QUERY"],
+			"captcha" =>	[	"g-recaptcha-response"],
 			"register" =>	[	"UID",
 								"EMAIL",
 								"PASS2",
@@ -75,8 +74,9 @@ function delete(){
 header("Content-type: text/plain");
 
 is_human();
-echo "Captcha OK\n";
-$q = $_POST["QUERY"];
-$q();
-
+if(isset($_POST["QUERY"]))
+	echo "Captcha OK\n";
+	$q = $_POST["QUERY"];
+	$q();
+}
 ?>

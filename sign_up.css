@@ -1,7 +1,23 @@
 body{
 	background-color:  #161c22;
 }
-.auth_form, .product{
+
+.user-info{
+	color: white;
+}
+
+.user-info>hr{
+	width: 50%;
+	box-shadow: #161c22 0px -2.5px 5px 2px;
+}
+
+.user-info>ul{
+	text-align: left;
+	width: 50%;
+	margin: auto;
+}
+
+.auth_form, .product, .form{
 	z-index: 1;
 	background-color: #27323da8;
 	box-shadow: inset 0px 0px 10px 0px black;
