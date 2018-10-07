@@ -143,6 +143,7 @@ input{
 .product-list{
 	width: 80%;
 	margin: auto;
+	padding: 10px;
 }
 
 .product{
@@ -151,7 +152,7 @@ input{
 	display: flex;
 	flex-direction: column;
 	max-width: 200px;
-	margin: 10px;
+	margin: auto;
 	z-index: 1;
 	float: left;
 }
@@ -240,4 +241,41 @@ input{
 .Elderich{
 	background-color: gold;
 	color: brown;
+}
+
+.filter{
+	position: fixed;
+	top: 150px;
+	width: 125px;
+	background: #27323d;
+	border-radius: 10px;
+	color: white;
+}
+
+.filter>h2{
+	padding: 5px 20px;
+}
+
+.filter>hr{
+	padding: 0px;
+	margin: 0px;
+}
+
+.filer_items{
+	background-color: #122b44;
+	padding: 10px;
+	box-shadow: #000000 inset 0px 0px 5px 0px;
+}
+
+.filter_items>div{
+	margin: auto;
+}
+
+.filt{
+	width: 100%;
+	height: initial;
+	font: initial;
+	border-radius: initial;
+	margin: auto;
+	margin: 10px auto;
 }
