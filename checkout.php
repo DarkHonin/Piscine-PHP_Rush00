@@ -1,7 +1,7 @@
 <?php
 
 include "init.php";
-if (!isset($_SESSION['UNAME']) || empty($_SESSION['UNAME'])
+if (!isset($_SESSION['UNAME']) || empty($_SESSION['UNAME']))
 	header("Location: /login.php?redirect=".$_SERVER['REQUEST_URI']);
 $_SESSION["CART"] = [];
 ?>
