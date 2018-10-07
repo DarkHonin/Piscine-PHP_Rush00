@@ -15,6 +15,5 @@ include "head.php";
 			<p style="color: white">Forgot your password?<a href="#" style="color: white"> Click here</a></p>
 		</form>
 		<hr style="color:aliceblue">
-
 </body>
 </html>

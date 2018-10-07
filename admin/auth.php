@@ -67,7 +67,7 @@ function login(){
 			else
 				header("Location: /");
 		}else
-			die("Login invalid");
+			header("Location: /login.php?err='Login failure");
 	}
 
 is_human();

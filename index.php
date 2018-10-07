@@ -70,7 +70,7 @@
 			</div>
 			<div class="product-info">
 				<h2><?php echo $p["Name"] ?>
-				<a class="catagory <?php echo $p["Catagory"] ?>" href="/?filter=<?php echo $p["Catagory"] ?>"><?php echo $p["Catagory"] ?></a>
+				<label class="catagory <?php echo $p["Catagory"] ?>"><?php echo $p["Catagory"] ?></label>
 				</h2>
 				<div class="product-description"><?php echo $p["Description"] ?></div>
 				<p class="product-controll">

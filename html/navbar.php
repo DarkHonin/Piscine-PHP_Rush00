@@ -18,7 +18,12 @@
 						$item = send_query_arr(["select"=>"*", "from"=>"products", "where"=>"id=$id"])[0];
 			?>
 					<div class="cart-item">
-						<label class="cart-item-name"><span class='cart-item-amount'><?php echo $amount?>x</span><?php echo $item['name']?></label>
+						<label class="cart-item-name">
+							<span class='cart-item-amount'>
+								<?php echo $amount?>x
+							</span>
+							<?php echo $item['Name']?>
+							<a href="<?php echo add_redirect("/cart.php?action=del&item=".$item["id"]) ?>" class="cart-remove">X</a></label>
 					</div>
 			<?php 		}
 					}?>

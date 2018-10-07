@@ -10,4 +10,11 @@ if(!session_status() == 0)
 	session_start();
 include "core/database_utils.php";
 
+function add_redirect($url){
+	if ($url == "/")
+		return ($url."?redirect=".$_SERVER['REQUEST_URI']);
+	else
+		return ($url."&redirect=".$_SERVER['REQUEST_URI']);
+}	
+
 ?>

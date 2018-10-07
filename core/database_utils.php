@@ -45,17 +45,16 @@ function delete(&$str, $args){
 	$str .= "DELETE FROM ".($args['delete']['from']);
 }
 
-$CON = mysqli_connect("localhost", "root", "password", "r00");
+$CON = mysqli_connect("localhost", "root", "password");
+send_query("CREATE DATABASE IF NOT EXISTS r00");
+mysqli_select_db($CON, "r00");
 if (mysqli_connect_errno())
 	die("Failed to connect to the database: ".mysqli_connect_error());
 
 function build_query($query_array){
 	$str = "";
 	foreach($query_array as $k=>$v)
-	{
-
 		$k($str, $query_array);
-	}
 	return $str;
 }
 
