@@ -12,7 +12,7 @@ INSERT INTO `products` (`id`, `Name`, `Description`, `price`, `image`, `Catagory
 (1, 'Ring Cat', 'The king of the ring. Beware, all attemts to seperate this creature from his ring will result in sadness.', 50, 'ring_cat.jpg', 'Special'),
 (2, 'Sneaks Version 2', 'He sneak, he ran, but more than ever! He fam.', 125.5, 'Sneaks_Version_2.jpg', 'Exceptional'),
 (3, 'Fire King', 'He commands the blue flames and does not agree with the King of the Ring. They were once close but now never talk.', 45, 'Fire_King.jpg', 'Mundane'),
-(4, 'Flopter Swopter', 'Bestowd with godly abilities to easily dispatch of all flying insects. Beware the splash zone.', 200, 'Flopter_Swopter.jpg', 'Elderich');
+(4, 'Flopter Swopter', 'Bestowd with godly abilities to easily dispatch of all flying insects. Beware the splash zone.', 200, 'Flopter_Swopter.jpg', 'Elderich'),
 (5, 'Rebeca', 'She just doesnt.', 119, 'Rebeca.jpg', 'Special');
 
 CREATE TABLE `users` (

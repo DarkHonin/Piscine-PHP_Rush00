@@ -1,6 +1,7 @@
 <?php
 
 include "init.php";
+
 $lines = file("r00.sql");
 $templine = "";
 foreach ($lines as $line){
