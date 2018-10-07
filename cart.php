@@ -97,7 +97,7 @@ include "head.php";
 <ul>
 	<li>Items: <span><?php echo $count ?></span></li>
 	<li>Total: <span>R<?php echo number_format($total, 2) ?></span></li>
-	<li><a href="<?php echo add_redirect("/cart.php?action=check")?>">Checkout</a>
+	<li><a href="checkout.php">Checkout</a>
 </ul>
 </div>
 	<?php } ?>

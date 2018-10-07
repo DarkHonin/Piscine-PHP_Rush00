@@ -1,7 +1,7 @@
 <?php
 include "head.php";
 
-if (!isset($_SESSION['UNAME']))
+if (!isset($_SESSION['UNAME']) || empty($_SESSION['UNAME'])
 	header("Location: /login.php?redirect=".$_SERVER['REQUEST_URI']);
 
 $data = send_query_arr(["select"=>"*", "from"=>"users", "where"=>"Username='".$_SESSION['UNAME']."'"])[0];
