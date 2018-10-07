@@ -74,7 +74,7 @@
 				</h2>
 				<div class="product-description"><?php echo $p["Description"] ?></div>
 				<p class="product-controll">
-				<span class="price">R<?php echo $p["price"] ?></span>
+				<span class="price">R<?php echo  number_format($p["price"], 2) ?></span>
 				<a class="cart-add" href="/cart.php?action=add&item=<?php echo $p["id"] ?>">Add to cart</a>
 			</p>
 			</div>
